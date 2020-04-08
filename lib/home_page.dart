@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'learn_page.dart';
+import 'package:gradient_app_bar/gradient_app_bar.dart';
+
 
 class Home extends StatefulWidget {
   @override
@@ -35,10 +37,12 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(actions: <Widget>[IconButton(icon: Icon(Icons.settings), onPressed: null)],
+      appBar: GradientAppBar(actions: <Widget>[IconButton(icon: Icon(Icons.settings), onPressed: null)],
         title: Text('My Courses',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 18),),
         elevation: 0,
         centerTitle: true,
+        backgroundColorStart: Colors.cyan,
+    backgroundColorEnd: Colors.blue,
       ),
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -49,7 +53,7 @@ class _HomeState extends State<Home> {
             activeIcon: new Icon(Icons.search, color: Colors.blue),
             icon: new Icon(Icons.search, color: Colors.grey),
             title: new Text(
-              'Search',
+              'Explore',
               style: TextStyle(color: Colors.blue),
             ),
           ),
@@ -57,7 +61,7 @@ class _HomeState extends State<Home> {
             activeIcon: new Icon(Icons.star, color: Colors.blue),
             icon: new Icon(Icons.star, color: Colors.grey),
             title: new Text(
-              'Special',
+              'Recommended',
               style: TextStyle(color: Colors.blue),
             ),
           ),
@@ -81,7 +85,7 @@ class _HomeState extends State<Home> {
             activeIcon: new Icon(Icons.person, color: Colors.blue),
             icon: new Icon(Icons.person, color: Colors.grey),
             title: new Text(
-              'Accounts',
+              'Profile',
               style: TextStyle(color: Colors.blue),
             ),
           )
