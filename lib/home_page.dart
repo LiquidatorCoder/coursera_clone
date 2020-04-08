@@ -11,12 +11,20 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _currentIndex = 2;
   final List<Widget> _children = [
-   Container(color: Colors.red,),
-   Container(color: Colors.orange,),
-   Learn(),
-   Container(color: Colors.blue,),
-   Container(color: Colors.green,),
- ];
+    Container(
+      color: Colors.red,
+    ),
+    Container(
+      color: Colors.orange,
+    ),
+    Learn(),
+    Container(
+      color: Colors.blue,
+    ),
+    Container(
+      color: Colors.green,
+    ),
+  ];
 
   void onTabTapped(int index) {
     setState(() {
@@ -27,8 +35,8 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('My Courses'),
+      appBar: AppBar(actions: <Widget>[IconButton(icon: Icon(Icons.settings), onPressed: null)],
+        title: Text('My Courses',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 18),),
         elevation: 0,
         centerTitle: true,
       ),
@@ -38,38 +46,40 @@ class _HomeState extends State<Home> {
         currentIndex: _currentIndex,
         items: [
           BottomNavigationBarItem(
-            icon: new Icon(
-              Icons.search,
-              color: Colors.blue,
-            ),
+            activeIcon: new Icon(Icons.search, color: Colors.blue),
+            icon: new Icon(Icons.search, color: Colors.grey),
             title: new Text(
               'Search',
               style: TextStyle(color: Colors.blue),
             ),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(Icons.star, color: Colors.blue),
+            activeIcon: new Icon(Icons.star, color: Colors.blue),
+            icon: new Icon(Icons.star, color: Colors.grey),
             title: new Text(
               'Special',
               style: TextStyle(color: Colors.blue),
             ),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(Icons.book, color: Colors.blue),
+            activeIcon: new Icon(Icons.book, color: Colors.blue),
+            icon: new Icon(Icons.book, color: Colors.grey),
             title: new Text(
               'Learn',
               style: TextStyle(color: Colors.blue),
             ),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(Icons.cloud_download, color: Colors.blue),
+            activeIcon: new Icon(Icons.cloud_download, color: Colors.blue),
+            icon: new Icon(Icons.cloud_download, color: Colors.grey),
             title: new Text(
               'Downloads',
               style: TextStyle(color: Colors.blue),
             ),
           ),
           BottomNavigationBarItem(
-            icon: new Icon(Icons.person, color: Colors.blue),
+            activeIcon: new Icon(Icons.person, color: Colors.blue),
+            icon: new Icon(Icons.person, color: Colors.grey),
             title: new Text(
               'Accounts',
               style: TextStyle(color: Colors.blue),
