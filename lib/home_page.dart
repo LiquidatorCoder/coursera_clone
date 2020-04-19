@@ -1,7 +1,7 @@
+import 'package:coursera_clone/downloads_page.dart';
 import 'package:flutter/material.dart';
 import 'learn_page.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
-
 
 class Home extends StatefulWidget {
   @override
@@ -20,9 +20,7 @@ class _HomeState extends State<Home> {
       color: Colors.orange,
     ),
     Learn(),
-    Container(
-      color: Colors.blue,
-    ),
+    Download(),
     Container(
       color: Colors.green,
     ),
@@ -37,13 +35,33 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: GradientAppBar(actions: <Widget>[IconButton(icon: Icon(Icons.settings), onPressed: null)],
-        title: Text('My Courses',style: TextStyle(fontWeight: FontWeight.w400,fontSize: 18),),
-        elevation: 0,
-        centerTitle: true,
-        backgroundColorStart: Colors.cyan,
-    backgroundColorEnd: Colors.blue,
-      ),
+      appBar: _currentIndex == 2
+          ? GradientAppBar(
+              actions: <Widget>[
+                IconButton(icon: Icon(Icons.settings), onPressed: null)
+              ],
+              title: Text(
+                'My Courses',
+                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
+              ),
+              elevation: 0,
+              centerTitle: true,
+              backgroundColorStart: Colors.cyan,
+              backgroundColorEnd: Colors.blue,
+            )
+          : AppBar(
+              title: Text(
+                _currentIndex == 0
+                    ? 'Search'
+                    : _currentIndex == 1
+                        ? 'Recommended'
+                        : _currentIndex == 3 ? 'Downloads' : 'Profile',
+                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
+              ),
+              elevation: 0,
+              centerTitle: true,
+              backgroundColor: Colors.blueGrey[700],
+            ),
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTabTapped,
@@ -54,7 +72,7 @@ class _HomeState extends State<Home> {
             icon: new Icon(Icons.search, color: Colors.grey),
             title: new Text(
               'Explore',
-              style: TextStyle(color: Colors.blue),
+              style: TextStyle(color: Colors.blue, fontSize: 12),
             ),
           ),
           BottomNavigationBarItem(
@@ -62,7 +80,7 @@ class _HomeState extends State<Home> {
             icon: new Icon(Icons.star, color: Colors.grey),
             title: new Text(
               'Recommended',
-              style: TextStyle(color: Colors.blue),
+              style: TextStyle(color: Colors.blue, fontSize: 12),
             ),
           ),
           BottomNavigationBarItem(
@@ -70,7 +88,7 @@ class _HomeState extends State<Home> {
             icon: new Icon(Icons.book, color: Colors.grey),
             title: new Text(
               'Learn',
-              style: TextStyle(color: Colors.blue),
+              style: TextStyle(color: Colors.blue, fontSize: 12),
             ),
           ),
           BottomNavigationBarItem(
@@ -78,7 +96,7 @@ class _HomeState extends State<Home> {
             icon: new Icon(Icons.cloud_download, color: Colors.grey),
             title: new Text(
               'Downloads',
-              style: TextStyle(color: Colors.blue),
+              style: TextStyle(color: Colors.blue, fontSize: 12),
             ),
           ),
           BottomNavigationBarItem(
@@ -86,7 +104,7 @@ class _HomeState extends State<Home> {
             icon: new Icon(Icons.person, color: Colors.grey),
             title: new Text(
               'Profile',
-              style: TextStyle(color: Colors.blue),
+              style: TextStyle(color: Colors.blue, fontSize: 12),
             ),
           )
         ],

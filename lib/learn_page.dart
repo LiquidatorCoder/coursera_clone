@@ -42,10 +42,15 @@ class _LearnState extends State<Learn> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.centerRight,
-              end: Alignment.centerLeft,
-              colors: [Colors.blue, Colors.cyan])),
+        gradient: LinearGradient(
+          begin: Alignment.centerRight,
+          end: Alignment.centerLeft,
+          colors: [Colors.blue, Colors.cyan],
+        ),
+        image: DecorationImage(
+            image: AssetImage('assets/images/bg card.png'),
+            alignment: Alignment.bottomCenter),
+      ),
       child: ListView.builder(
         itemBuilder: (context, position) {
           return Card(
@@ -82,6 +87,7 @@ class _LearnState extends State<Learn> {
                           ],
                         ),
                         IconButton(
+                          onPressed: null,
                           color: Colors.grey,
                           icon: Icon(Icons.more_horiz),
                         )
