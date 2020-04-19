@@ -1,4 +1,5 @@
 import 'package:coursera_clone/downloads_page.dart';
+import 'package:coursera_clone/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'learn_page.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
@@ -21,9 +22,7 @@ class _HomeState extends State<Home> {
     ),
     Learn(),
     Download(),
-    Container(
-      color: Colors.green,
-    ),
+    Profile(),
   ];
 
   void onTabTapped(int index) {
@@ -50,6 +49,11 @@ class _HomeState extends State<Home> {
               backgroundColorEnd: Colors.blue,
             )
           : AppBar(
+              actions: <Widget>[
+                _currentIndex == 4
+                    ? IconButton(icon: Icon(Icons.settings), onPressed: null)
+                    : Container()
+              ],
               title: Text(
                 _currentIndex == 0
                     ? 'Search'
