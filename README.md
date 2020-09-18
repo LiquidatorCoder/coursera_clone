@@ -1,6 +1,6 @@
 # <div align="center">Coursera UI Challenge using Flutter</div>
 
-<div align="center">This is the App which I made during the Coursera UI Challenge in which I implemented Coursera's beautiful UI using Flutter.
+<div align="center">This is a App that I made during the Coursera UI Challenge in which I implemented Coursera's beautiful UI using Flutter.
 
 
 ![flutter](https://img.shields.io/badge/Flutter-Framework-green?logo=flutter)
